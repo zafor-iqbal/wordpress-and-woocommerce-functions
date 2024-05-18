@@ -13,3 +13,16 @@ function dbaby_translate_woocommerce_strings_emails( $translated, $untranslated,
     }
     return $translated;
 }
+
+
+
+
+add_filter( 'gettext', 'dbaby_translate_woocommerce_string', 9999, 3 );
+
+function dbaby_translate_woocommerce_string( $translated, $untranslated, $domain ) {
+    if ( 'woocommerce' === $domain ) {
+        // New replacements
+        $translated = str_ireplace( 'Select Option', 'Vælg Indstilling', $translated );
+    }
+    return $translated;
+}
